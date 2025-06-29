@@ -1,0 +1,23 @@
+insert into clinica_geral values (default,'00.329.145/0001-34', 'Lar da Familia', '(85)3315-0000', 'Avenida Barão do Rio Azul, N° 57, Fortaleza-CE');
+
+insert into convenio values (default, 'Sorriso Alegre', 'Avenida Oscar Ferreira, N° 386, Fortaleza-CE', '(85)3315-0001');
+insert into convenio values (default, 'Arco-Íris','Avenida Bezerra de Monteiro, N° 40, Fortaleza-CE', '(85)3315-0002');
+insert into convenio values (default, 'Amor Eterno', 'Avenida Castro & Caio, N° 98, Fortaleza-CE', '(85)3315-0003');
+
+insert into paciente values (default, '000.000.043-72', 'José Ferreira Cordeiro' , '1987-05-12', '(85)98800-0000', 'joseferreira@email.com.br', 'Avenida Oscar Ferreira, N° 300, Fortaleza-CE', 1);
+insert into paciente values (default, '000.010.033-79', 'Maria Edvalda Nogueira', '1999-06-22', '(85)98700-0000', 'marianogueira@email.com.br', 'Avenida Castro & Caio, N° 96, Fortaleza-CE', 3);
+insert into paciente values (default, '000.124.343-54', 'Socorro Cristina dos Santos', '1966-02-25', '(85)99100-0000', 'socorrosantos@email.com.br', 'Avenida José Barosso, N° 127, Fortaleza-CE', null);
+
+insert into especialidade values (default, 'Clinico Geral');
+insert into especialidade values (default, 'Odontologia');
+insert into especialidade values (default, 'Ginecologia');
+
+insert into medico values (default, 'Kevin Cristiano da Silva', '123456/CE', '(85)98100-0000', 'kevincris@email.com.br', 1, 1);
+insert into medico values (default, 'Polly Menezes Castro', '789012/CE', '(85)99205-0000', 'pollym@email.com.br', 3, 1);
+insert into medico values (default, 'Fernanda Oliveira Batista', '345678/CE', '(85)98234-0000', 'feolib@email.com.br', 2, 1);
+
+insert into consulta values (default, '2025-08-24 09:30:00', 'agendado', null, 1, 1);
+insert into consulta values (default, '2025-06-25 10:30:00', 'cancelado', 'Paciente pediu remarcamento', 3, 3);
+insert into consulta values (default, '2025-06-29 14:30:00', 'agendado', null, 3, 3);
+insert into consulta values (default, '2025-01-16 08:00:00', 'realizado', 'Paciente requer limpeza e avaliação', 2, 2);
+insert into consulta values (default, '2025-07-16 08:00:00', 'agendado', 'Follow up do paciente', 2,2);
