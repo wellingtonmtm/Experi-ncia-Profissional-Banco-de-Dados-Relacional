@@ -1,0 +1,57 @@
+create database clinica;
+use clinica;
+
+create table clinica_geral (
+	id_clinica int not null primary key,
+    cnpj_clinica varchar(18),
+    nome_clinica varchar(255),
+    tel_clinica varchar(15),
+    end_clinica varchar(255)
+);
+
+create table especialidade (
+	id_especialidade int not null auto_increment primary key,
+    nome_especialidade varchar(255) not null unique
+);
+
+create table medico (
+	id_medico int not null auto_increment primary key,
+	nome_medico varchar(255) not null,
+    crm_medico varchar(15) not null unique,
+    tel_medico varchar(15) not null,
+    email_medico varchar(255),
+    id_especialidade int not null,
+    id_clinica int not null,
+	foreign key (id_especialidade) references especialidade(id_especialidade),
+    foreign key (id_clinica) references clinica_geral(id_clinica)
+);
+
+create table convenio (
+	id_convenio int not null auto_increment primary key,
+    nome_convenio varchar(255) not null unique,
+    end_convenio varchar(255),
+    tel_convenio varchar(15) not null
+);
+
+create table paciente (
+	id_paciente int not null auto_increment primary key,
+    cpf_paciente varchar(14) not null unique,
+    nome_paciente varchar(255) not null,
+    data_nascimento date not null,
+    tel_paciente varchar(15) not null,
+    email_paciente varchar(255),
+    end_paciente varchar(255),
+    id_convenio int,
+    foreign key (id_convenio) references convenio(id_convenio)
+);
+
+create table consulta (
+	id_consulta int auto_increment not null primary key,
+    data_hora datetime not null,
+    status_consulta enum('agendado','realizado','cancelado') not null,
+    observacoes longtext,
+    id_paciente int not null,
+    id_medico int not null,
+    foreign key (id_paciente) references paciente(id_paciente),
+    foreign key (id_medico) references medico(id_medico)
+);
