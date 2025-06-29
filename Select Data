@@ -1,0 +1,15 @@
+select * from clinica_geral;
+
+select * from convenio;
+
+select * from paciente;
+
+select * from especialidade;
+
+select * from medico;
+
+select * from consulta;
+
+select nome_paciente, cpf_paciente, id_consulta, status_consulta from paciente, consulta where consulta.id_paciente = paciente.id_paciente and status_consulta = 'agendado';
+select nome_paciente, cpf_paciente, id_consulta, status_consulta from paciente, consulta where consulta.id_paciente = paciente.id_paciente and status_consulta = 'realizado';
+select nome_paciente, cpf_paciente, id_consulta, status_consulta from (paciente JOIN consulta on consulta.id_paciente = paciente.id_paciente) where status_consulta = 'cancelado';
